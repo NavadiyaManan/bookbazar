@@ -1,0 +1,31 @@
+.content {
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+mat-card {
+    margin: 5px 100px;
+}
+
+mat-card-content {
+    margin: 10px 40px;
+    text-align: justify;
+}
+
+mat-card-title {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+table {
+    margin-top: 20px;
+
+    width: 100%;
+    padding: auto;
+
+}
+
+span {
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif
+}

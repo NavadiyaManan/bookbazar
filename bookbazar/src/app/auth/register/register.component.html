@@ -1,0 +1,71 @@
+<div class="content" role="main">
+  <form class="example-form" [formGroup]="registerform" (ngSubmit)="register()">
+    <div>
+      <mat-card-title class="Registeration-title">{{title}}</mat-card-title>
+    </div><br />
+    <!-- first Name -->
+    <mat-form-field appearance="outline">
+      <mat-label> First Name</mat-label>
+      <input matInput formControlName="fname" placeholder="First Name"
+        [ngClass]="{ 'is-invalid': submitted && f['fname'].errors }" />
+      <mat-error *ngIf="f['fname'].errors?.['required']"><mat-icon style="margin-right: 10px;">error</mat-icon>First
+        Name is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+    <!-- LastName -->
+    <mat-form-field appearance="outline">
+      <mat-label> Last Name</mat-label>
+      <input matInput formControlName="lname" placeholder="Last Name"
+        [ngClass]="{ 'is-invalid': submitted && f['lname'].errors }" />
+      <mat-error *ngIf="f['lname'].errors?.['required']"><mat-icon style="margin-right: 10px;">error</mat-icon>Last Name
+        is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+    <!-- Phone Number -->
+    <mat-form-field appearance="outline">
+      <mat-label> Phone Number</mat-label>
+      <input matInput formControlName="mnum" placeholder="Phone Number"
+        onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="10" maxlength="10"
+        [ngClass]="{ 'is-invalid': submitted && f['mnum'].errors }" />
+      <mat-error *ngIf="f['mnum'].errors?.['required']"><mat-icon style="margin-right: 10px;">error</mat-icon>Mobile
+        Number is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+    <!-- Email -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" placeholder="Password" matInput placeholder="Email"
+        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+      <mat-error *ngIf="f['email'].errors?.['required']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>Email is a required ! </mat-error>
+      <mat-error *ngIf="f['email'].errors?.['email']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>Enter proper Email ! </mat-error>
+    </mat-form-field>
+    <br />
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" minlength="8"
+        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+      <mat-error *ngIf="f['password'].errors?.['required']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>Password is a required ! </mat-error>
+    </mat-form-field>
+    <br>
+    <!-- age -->
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age" onkeypress="return event.charCode>=48 && event.charCode<=57"
+        [ngClass]="{ 'is-invalid': submitted && f['age'].errors }" />
+      <mat-error *ngIf="f['age'].errors?.['required']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>Age is a required ! </mat-error>
+    </mat-form-field>
+    <!-- Button -->
+    <div class="example-button-row">
+      <button type="submit" style="margin-left: 150px;" mat-raised-button color="primary"
+        [disabled]="registerform.invalid">Register</button>
+      <br>
+      <a style="text-decoration: none;" style="margin-left: 100px; margin-top: 10px;">Already have Account ? <a
+          class="text-danger" routerLink="/login">Login</a></a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,75 @@
+<div class="content" role="main">
+  <form class="example-form" [formGroup]="addUserForm" (ngSubmit)="Action()">
+    <div>
+      <mat-card-title class="Registeration-title">{{title}}</mat-card-title>
+    </div>
+    <br />
+    <!-- Book title -->
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title1" placeholder="Enter Book title" />
+      <mat-error *ngIf="addUserForm.get('title1')?.errors?.['required']"><mat-icon
+          style="margin-right: 10px;">error</mat-icon>Book title is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+    
+    <!-- Author -->
+    <mat-form-field appearance="outline">
+      <mat-label> Author</mat-label>
+      <input matInput formControlName="author" placeholder="Enter Book's author name" />
+      <mat-error *ngIf="addUserForm.get('author')?.errors?.['required']"><mat-icon
+          style="margin-right: 10px;">error</mat-icon>author
+        is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+
+    <!-- ISBN -->
+    <mat-form-field appearance="outline">
+      <mat-label> ISBN</mat-label>
+      <input matInput formControlName="isbn" placeholder="Enter ISBN number" />
+      <mat-error *ngIf="addUserForm.get('isbn')?.errors?.['required']"><mat-icon
+          style="margin-right: 10px;">error</mat-icon>ISBN
+        is a required ! </mat-error>
+    </mat-form-field>
+    <br />
+
+    <!-- price  -->
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input type="text" formControlName="price" placeholder="Enter price of book" matInput
+        onkeypress="return event.charCode>=48 && event.charCode<=57" />
+      <mat-error *ngIf="addUserForm.get('price')?.errors?.['required']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>Price is a required ! </mat-error>
+
+    </mat-form-field>
+    <br />
+
+    <!-- condition  -->
+    <mat-form-field appearance="outline">
+      <mat-label>Condition</mat-label>
+      <input matInput formControlName="condition" placeholder="Enter condition of book" />
+      <mat-error *ngIf="addUserForm.get('condition')?.errors?.['required']">
+        <mat-icon style="margin-right: 10px;">error</mat-icon>condition is a required ! </mat-error>
+    </mat-form-field>
+    <br>
+    
+    <mat-card-content>
+      test
+      <input type="file" (change)="uploadImage($event)"  formControlName="img" >
+      <!-- <button (click)="upload()">upload Image</button> -->
+      <!-- <mat-progress-bar *ngIf="uploadProgress | async" [value]="uploadProgress | async"></mat-progress-bar> -->
+    </mat-card-content>
+
+ 
+
+    <div class="example-button-row">
+      <button type="submit" mat-raised-button color="primary" (click)="Action()" [disabled]="addUserForm.invalid">
+        {{buttonName}} </button>
+      <button type="button" mat-raised-button color="primary" (click)="cancelRegistration()">Cancel </button>
+    </div>
+  </form>
+</div>
+
+
+
+

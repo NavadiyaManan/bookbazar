@@ -1,0 +1,35 @@
+.ng-star-inserted{
+    width: 400px;
+    
+}
+button {
+    margin: 5px;
+}
+
+form {
+    background-color: antiquewhite;
+    padding: 20px;
+    box-shadow: 0 0 10px #2834da;
+    border-radius: 10px;
+}
+.Registeration-title {
+    margin-left: 27%;
+    color: #3f51b5;
+    margin-bottom: 10px;
+}
+a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff4081;
+}
+
+.content {
+    display: flex;
+    margin: 15px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }

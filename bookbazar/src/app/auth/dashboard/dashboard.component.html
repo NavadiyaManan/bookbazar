@@ -1,0 +1,89 @@
+<!-- nav bar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <form class="d-flex">
+        <span>{{userDisplayName}}</span>
+        <button class="btn btn-outline-dark" (click)="logoutFirebase()"
+            style="margin-left: 1000px; width: 120px; align-items: center;font-size: 20px; margin-top: 10px; margin-right: 5px;"
+            type="submit">
+            <mat-icon style="margin:auto;"> logout</mat-icon>LogOut
+        </button>
+    </form>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand">TheBookBazar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+              
+                <button class="btn btn-outline-dark" type="button" (click)="addUser()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Add Books <i class="bi bi-plus-circle"></i>
+
+                </button>
+                <button style="margin-right: 10px;margin-left: 10px;" class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    
+                    Cart
+                   
+                </button>
+                <button class="btn btn-outline-dark" (click)="logoutFirebase()" type="submit">
+                    LogOut
+                    </button>
+               
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- header -->
+<header class=" py-3">
+    <div class="container px-3 px-lg-3 my-3">
+    </div>
+</header>
+
+
+<!-- Main DATA-->
+<mat-card>
+    <mat-card-title>Books</mat-card-title>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Filter by Category</mat-label>
+      <mat-select [(value)]="selectedCategory" (selectionChange)="setSelectedCategory($event.value)">
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="500px">
+        <mat-grid-tile *ngFor="let book of bookdata" [colspan]="1" [rowspan]="1">
+          <mat-card>
+            <img mat-card-image [src]="profileUrl  |async" alt="{{ book.title }} cover" />
+            <mat-card-content>
+              <mat-card-title>{{ book.title1 }}</mat-card-title>
+              <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+              <p class="mat-body">{{ book.isbn }}</p>
+              <p class="mat-body">{{ book.price | currency: 'INR' }}</p>
+              <p class="mat-body">{{ book.condition }}</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+<!-- footer -->
+<footer class="py-5 ">
+    <div class="container">
+       
+    </div>
+</footer>
+<!-- <img [src]="profileUrl | async" /> -->
